@@ -49,9 +49,11 @@ int main(int argc, char * argv[]){
 					{
 						
 						*(line + j + 1) = '*';
+						
 						line = (char*)realloc(line, (lineLength + 2));
-						*(line + lineLength - 1) = '*';
-						*(line + lineLength ) = '/';
+						*(line + lineLength + 1) = '\0'; /* prevent junk data inseart */
+						*(line + lineLength -1) = '*';
+						*(line + lineLength  ) = '/';
 						break; /* breaks becuase there is no need to search for more inline comments on this line*/
 					}
 				}
